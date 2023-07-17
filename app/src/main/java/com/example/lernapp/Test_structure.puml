@@ -1,0 +1,160 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "com.example.lernapp.Test",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1322970774 { 
+   	label=example
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1514438664 { 
+   	label=lernapp
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   Answer17646181[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Answer</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   answerID: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   answerText: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   isCorrect: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   isSelected: boolean [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Question17646181[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Question</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   answers: Answer[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   isChecked: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   isMarked: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   questionID: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   questionText: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   selectedAnswer: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ disselectAnswers()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Test17646181[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Test</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   CQI: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   CurrentQuestion: Question [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   chosenAnswers: int[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   ergebnis: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   isFinished: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   questions: Question[] [0..*]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+Question17646181 -> Answer17646181[label="answers
+[0..*]"];
+Test17646181 -> Question17646181[label="CurrentQuestion
+[0..1]"];
+Test17646181 -> Question17646181[label="questions
+[0..*]"];
+    
+}
+@enduml
