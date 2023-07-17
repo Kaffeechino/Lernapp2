@@ -1,8 +1,6 @@
 package com.example.lernapp;
 
 
-import static com.example.lernapp.TestActivity.context;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -37,8 +35,8 @@ public class Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String urlServer = getResources().getString(R.string.url);
-        MyAsyncTask task = new MyAsyncTask(urlServer);
+        String serverIp = getResources().getString(R.string.serverIp);
+        MyAsyncTask task = new MyAsyncTask(serverIp);
         task.execute();
 
         // Initialize views
@@ -83,7 +81,7 @@ public class Main extends AppCompatActivity {
         buttonLogout.setOnClickListener(v -> {
             // Create a request queue
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-            String url = "http://" + getResources().getString(R.string.url) + "/login-registration-android/logout.php";
+            String url = "http://" + getResources().getString(R.string.serverIp) + "/login-registration-android/logout.php";
 
             // Create a StringRequest to send a POST request to the logout URL
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url,

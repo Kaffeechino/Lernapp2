@@ -21,7 +21,7 @@
     <string name="home">Home</string>
     <string name="test">Test</string>
     <string name="go_to_crud">Go to Crud</string>
-    <string name="serverIP">192.168.178.21</string>
+
     <string name="click_here_to_login">Click here to login</string>
     <string name="ranking">Ranking</string>
     <string name="title_activity_list_view">ListView</string>
@@ -31,6 +31,6 @@
 
     <!-- Das ist die Adresse von Apache- und MySQL-Server (z.B. bei XAMPP)
             bitte ändern, damit die App sich verbinden kann-->
-    <string name="url">192.168.178.97</string>
+    <string name="serverIp">192.168.178.97</string>
 
 </resources>

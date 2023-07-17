@@ -93,7 +93,7 @@ public class Login extends AppCompatActivity {
             password = String.valueOf(textInputEditTextPassword.getText());
 
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-            String url = "http://" + getResources().getString(R.string.url) + "/login-registration-android/login.php";
+            String url = "http://" + getResources().getString(R.string.serverIp) + "/login-registration-android/login.php";
 
             // Make a POST request to the login API
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url,

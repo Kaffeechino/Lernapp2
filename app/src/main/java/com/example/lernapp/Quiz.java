@@ -115,7 +115,7 @@ public class Quiz extends AppCompatActivity {
 
 
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-            String url = "http://" + getResources().getString(R.string.url) + "/login-registration-android/getQuestions.php";
+            String url = "http://" + getResources().getString(R.string.serverIp) + "/login-registration-android/getQuestions.php";
 
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                     response -> {
@@ -154,7 +154,7 @@ public class Quiz extends AppCompatActivity {
                 selectedAnswer = selectedRadioButton.getText().toString();
 
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url = "http://" + getResources().getString(R.string.url) + "/login-registration-android/checkAnswer.php";
+                String url = "http://" + getResources().getString(R.string.serverIp) + "/login-registration-android/checkAnswer.php";
 
                 for (int i = 0; i < radioGroup.getChildCount(); i++) {
                     RadioButton radioButton = (RadioButton) radioGroup.getChildAt(i);
